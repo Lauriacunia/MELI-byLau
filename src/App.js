@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Tarjeta from "./components/Tarjeta";
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Filtro from "./components/Filtro";
 import NavBar from "./components/NavBar";
-
 
 
 const useStyles = makeStyles({
@@ -20,15 +18,18 @@ const useStyles = makeStyles({
 const App = () => {
 
   const [productos, setProductos] = useState([]);
+  const [valorDelInput, setValorDelInput] = useState('');
+  const [busqueda, setBusqueda] = useState('');
+  const [urlBusqueda, setUrlBusqueda] = useState("sites/MLA/search?q=")
 
   useEffect(() => {
-    const BASE_URL = 'https://api.mercadolibre.com/sites/MLA/search?q=vino'
+    const BASE_URL = `https://api.mercadolibre.com/${urlBusqueda}${busqueda}`
     const searchString = BASE_URL 
   
     fetch(searchString)
       .then(res => res.json())
       .then(data => setProductos(data.results))
-  }, []);
+  }, [busqueda]);
 
  
   const useStyles = makeStyles({
@@ -40,10 +41,24 @@ const App = () => {
 
   const classes = useStyles();
 
+  const handleChange = e => {
+    setValorDelInput(e.target.value);
+    console.log(valorDelInput)
+  };
+
+  const handleSubmit = e => {
+    console.log("Enviaste el formulario")
+    e.preventDefault();
+    setBusqueda(valorDelInput);
+  };
 
   return (
     <>
-      <NavBar/>     
+      <NavBar 
+          valorDelInput={valorDelInput}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+      />     
       <Container className={classes.root}>
           <Grid 
             container  
@@ -60,10 +75,7 @@ const App = () => {
                 productos.map((producto) => {
                   return <Grid item xs={4}>
                            <Tarjeta
-                            key={producto.id}
-                            title={producto.title} 
-                            price = {producto.price}
-                            img={producto.thumbnail}
+                            producto={producto} 
                             />
                           </Grid> 
                 })

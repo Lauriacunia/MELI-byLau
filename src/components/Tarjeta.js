@@ -45,32 +45,27 @@ const useStyles = makeStyles({
     }
   });
     
-const Tarjeta = ({ title, price, img, id}) => {
-
-console.log(
-    `props de Tarjeta titulo:${title}
-     precio:${price} imgURL: ${img} `
-    );
-
+const Tarjeta = ({ producto }) => {
+console.log(producto)
 const classes = useStyles();
  
 
 return (
     <Card
         className={classes.root}
-        key={id}>
+        key={producto.id}>
 
        <CardActionArea>
             <CardMedia 
                 className={classes.media}
-                image={img}
+                image={producto.thumbnail}
             />
             <CardContent className={classes.details}>
                     <Typography className={classes.pos} variant="h5">
-                        $ {price}
+                        $ {producto.price}
                     </Typography>  
                     <Typography gutterBottom variant="body1" color="textSecondary">
-                        {title}
+                        {producto.title}
                     </Typography>                      
                         
             </CardContent>
