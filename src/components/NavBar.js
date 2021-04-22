@@ -156,13 +156,13 @@ const NavBar = ({handleSubmit, handleChange, valorDelInput}) => {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            BUSCADOR  
+            MELI Search 
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            
+
             <form onSubmit={handleSubmit}>
                <InputBase value={valorDelInput} onChange={handleChange}
                 placeholder=" Buscar productos, marcas y más…"

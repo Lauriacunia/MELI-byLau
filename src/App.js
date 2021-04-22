@@ -8,11 +8,15 @@ import ProductosContainer from "./components/ProductosContainer";
 
 
 const useStyles = makeStyles({
+  root: {
+    backgroundColor: "#e7e7e7",
+  },
   pos: {
       marginBottom: 12,
     },
 
 });
+
 
 
 const App = () => {
@@ -32,12 +36,6 @@ const App = () => {
   }, [busqueda]);
 
  
-  const useStyles = makeStyles({
-    root: {
-      backgroundColor: "#e7e7e7",
-    },
-
-  });
 
   const classes = useStyles();
 
@@ -62,6 +60,7 @@ const App = () => {
       <Container className={classes.root}>
           <ProductosContainer
           productos={productos}
+          busqueda={busqueda}
           />
         </Container>
       </>

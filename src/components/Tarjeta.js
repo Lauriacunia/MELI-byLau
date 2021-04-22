@@ -10,16 +10,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import IconButton from '@material-ui/core/IconButton';
 import ShareIcon from '@material-ui/icons/Share';
+import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined';
 
 const useStyles = makeStyles({
     root: {
-      width: 300,
-      padding:"20",
+      width: 230,
+      margin:"15",
     },
     media: {
-      height: 280,
+      height: 220,
       width:"auto",
-      padding:"30",
+      padding:"15",
     },
     pos: {
         marginBottom: 12,
@@ -63,7 +64,8 @@ return (
             <CardContent className={classes.details}>
                     <Typography className={classes.pos} variant="h5">
                         $ {producto.price}
-                    </Typography>  
+                    </Typography>
+                    {producto.shipping.free_shipping && <LocalShippingOutlinedIcon/>} 
                     <Typography gutterBottom variant="body1" color="textSecondary">
                         {producto.title}
                     </Typography>                      

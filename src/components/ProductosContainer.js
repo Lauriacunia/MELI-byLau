@@ -1,33 +1,51 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 import Tarjeta from "./Tarjeta";
 import Filtro from "./Filtro";
 
+
+const useStyles = makeStyles({
+    root: {
+        display: 'flex',
+        justifyContent: "flex-start",
+      },
+  
+  });
+  
+
 const ProductosContainer = ({productos}) => {
 
+    const classes = useStyles();
+
     return (
-            <Grid
-                container
-                spacing={3}
-                direction="row"
-                justify="space-around"
-                alignItems="flex-start">
+        <div className={classes.root}>
 
-                <Grid item xs={4}>
+                <div>
                     <Filtro />
-                </Grid>
+                </div>
 
+                
+                <Grid className={classes.root}
+                            container
+                            spacing={6}
+                            direction="row"
+                            
+                            >
+                        
                 {
                     productos.map((producto) => {
                         return <Grid item xs={4}>
-                            <Tarjeta
-                                producto={producto}
-                            />
-                        </Grid>
+                                    <Tarjeta
+                                        producto={producto}
+                                    />
+                               </Grid>
                     })
                 }
-            </Grid>
-
+                </Grid>
+               
+           
+      </div>
     )
 
 }
