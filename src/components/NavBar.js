@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import logo from "../assets/images/logo.png";
 
 const useStyles = makeStyles((theme) => ({
  
@@ -22,7 +23,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 20,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+   width: 100,
+  },
+  logo: {
+    width: "100%",
   },
   title: {
     display: 'none',
@@ -91,6 +95,7 @@ const NavBar = ({handleSubmit, handleChange, valorDelInput}) => {
  
 
   const menuId = 'primary-search-account-menu';
+
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -105,6 +110,7 @@ const NavBar = ({handleSubmit, handleChange, valorDelInput}) => {
   );
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
+
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -153,9 +159,12 @@ const NavBar = ({handleSubmit, handleChange, valorDelInput}) => {
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
+            <img 
+            className={classes.logo}
+            src={logo}/>
+
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant="h5" noWrap>
             MELI Search 
           </Typography>
           <div className={classes.search}>

@@ -10,6 +10,7 @@ import ProductosContainer from "./components/ProductosContainer";
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#e7e7e7",
+    padding:20,
   },
   pos: {
       marginBottom: 12,

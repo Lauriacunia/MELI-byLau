@@ -14,13 +14,13 @@ import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined'
 
 const useStyles = makeStyles({
     root: {
-      width: 230,
+      width: 300,
       margin:"15",
     },
     media: {
-      height: 220,
-      width:"auto",
-      padding:"15",
+      height: 280,
+      backgroundSize:"contain"
+
     },
     pos: {
         marginBottom: 12,
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: "column",
     justifyContent: "flex-start",
-    height: 130,
+    height: 120,
     },
     btn: {
         background: 'linear-gradient(45deg, #b2dfdb 30%, #ffeb3b 90%)',
@@ -49,7 +49,12 @@ const useStyles = makeStyles({
 const Tarjeta = ({ producto }) => {
 console.log(producto)
 const classes = useStyles();
- 
+
+const recortarTitulo = (str) => {
+    let strCorto = `${str.slice(0,94)}...`
+    return strCorto;
+};
+
 
 return (
     <Card
@@ -67,7 +72,10 @@ return (
                     </Typography>
                     {producto.shipping.free_shipping && <LocalShippingOutlinedIcon/>} 
                     <Typography gutterBottom variant="body1" color="textSecondary">
-                        {producto.title}
+                        {producto.title.length < 95 
+                        ? producto.title 
+                        : recortarTitulo(producto.title)
+                        }
                     </Typography>                      
                         
             </CardContent>

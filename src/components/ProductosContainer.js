@@ -9,7 +9,12 @@ const useStyles = makeStyles({
     root: {
         display: 'flex',
         justifyContent: "flex-start",
+
       },
+    cardContainer: {
+        display: 'flex',
+       
+    }
   
   });
   
@@ -26,16 +31,18 @@ const ProductosContainer = ({productos}) => {
                 </div>
 
                 
-                <Grid className={classes.root}
-                            container
-                            spacing={6}
-                            direction="row"
-                            
+                <Grid className={classes.cardContainer}
+                      container
+                      spacing={4}
+                      justify="center"                      
                             >
                         
                 {
                     productos.map((producto) => {
-                        return <Grid item xs={4}>
+                        return <Grid 
+                                    item xs={6}
+                                    alignItems="center"
+                                    >
                                     <Tarjeta
                                         producto={producto}
                                     />

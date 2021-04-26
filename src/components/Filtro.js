@@ -17,10 +17,11 @@ import Slider from '@material-ui/core/Slider';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: 300,
+        width: 250,
+        margin:30,
     },
     pos: {
-        marginBottom: 12,
+        margin: 12,
       },
     heading: {
       fontSize: theme.typography.pxToRem(15),
@@ -39,7 +40,7 @@ const classes = useStyles();
     <Card className={classes.root}>
         
         <Typography className={classes.pos} color="textSecondary">
-            FILTER BY
+            Total <span>4.563</span> productos.
         </Typography>
        
 
