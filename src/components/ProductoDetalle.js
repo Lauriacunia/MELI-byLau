@@ -14,9 +14,13 @@ import LocalShippingOutlinedIcon from '@material-ui/icons/LocalShippingOutlined'
 
 const useStyles = makeStyles({
     root: {
-      width: 300,
+      width: "70%",
       margin:"15",
     },
+    primeraFila: {
+     flexDirection: "column",
+    },
+  
     media: {
       height: 280,
       backgroundSize:"contain"
@@ -46,38 +50,39 @@ const useStyles = makeStyles({
     }
   });
     
-const Tarjeta = ({ producto }) => {
-console.log(producto)
+const ProductoDetalle = ({ productoDetalle }) => {
+console.log(productoDetalle)
 const classes = useStyles();
-
-const recortarTitulo = (str) => {
-    let strCorto = `${str.slice(0,94)}...`
-    return strCorto;
-};
 
 
 return (
     <Card
         className={classes.root}
-        key={producto.id}>
+        key={productoDetalle.id}>
 
        <CardActionArea>
-            <CardMedia 
-                className={classes.media}
-                image={producto.thumbnail}
-            />
-            <CardContent className={classes.details}>
-                    <Typography className={classes.pos} variant="h5">
-                        $ {producto.price}
-                    </Typography>
-                    {producto.shipping.free_shipping && <LocalShippingOutlinedIcon/>} 
-                    <Typography gutterBottom variant="body1" color="textSecondary">
-                        {producto.title.length < 95 
-                        ? producto.title 
-                        : recortarTitulo(producto.title)
-                        }
-                    </Typography>                      
-                        
+            <div className={classes.primeraFila}>
+                <CardMedia 
+                    className={classes.media}
+                    image={productoDetalle.thumbnail}
+                />
+                <CardContent className={classes.details}>
+                        <Typography  variant="h5">
+                            nuevo-usado | 345 vendidos
+                        </Typography>
+                        <Typography gutterBottom variant="body1" color="textSecondary">
+                            {productoDetalle.title} 
+                        </Typography> 
+                        <Typography className={classes.pos} variant="h5">
+                            $ {productoDetalle.price}
+                        </Typography>
+                        {productoDetalle.shipping.free_shipping && <LocalShippingOutlinedIcon/>}         
+                </CardContent>
+            </div>
+            <CardContent>
+                  <Typography gutterBottom variant="body1" color="textSecondary">
+                    {productoDetalle.description} 
+                  </Typography> 
             </CardContent>
         </CardActionArea>
 
@@ -101,4 +106,4 @@ return (
 )
 };
  
-export default Tarjeta;
+export default ProductoDetalle;

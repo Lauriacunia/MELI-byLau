@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Tarjeta from "./Tarjeta";
+import Producto from "./Producto";
 import Filtro from "./Filtro";
 
 
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   });
   
 
-const ProductosContainer = ({productos}) => {
+const ProductosContainer = ({productos, handleClickProductoDetalle}) => {
 
     const classes = useStyles();
 
@@ -43,8 +43,9 @@ const ProductosContainer = ({productos}) => {
                                     item xs={6}
                                     alignItems="center"
                                     >
-                                    <Tarjeta
+                                    <Producto
                                         producto={producto}
+                                        handleClickProductoDetalle={handleClickProductoDetalle}
                                     />
                                </Grid>
                     })
