@@ -49,7 +49,8 @@ const App = () => {
       .then(res => res.json())
       .then(data => {
           console.log(data)
-          setIdProductoDetalle(data)
+          setProductoDetalle(data)
+          setTipoDeVista("detalle")
       })
   }, [idProductoDetalle]);
 
@@ -70,8 +71,8 @@ const App = () => {
 
   const handleClickProductoDetalle = (id) => {
     console.log(id)
-    //setTipoDeVista("detalle")
     setIdProductoDetalle(id)
+    
   }
 
   return (

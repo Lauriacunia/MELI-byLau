@@ -68,7 +68,9 @@ return (
                 />
                 <CardContent className={classes.details}>
                         <Typography  variant="h5">
-                            nuevo-usado | 345 vendidos
+                            {productoDetalle.condition === "new"
+                             ? "Nuevo"
+                             : "Usado" } | 345 vendidos
                         </Typography>
                         <Typography gutterBottom variant="body1" color="textSecondary">
                             {productoDetalle.title} 
@@ -96,7 +98,7 @@ return (
                 </IconButton>
             </div>
             <Button className={classes.btn}>
-                Ver Mas
+                COMPRAR
             </Button>
         </CardActions>
         
